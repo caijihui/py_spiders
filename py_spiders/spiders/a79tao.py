@@ -10,7 +10,7 @@ class A79taoSpider(scrapy.Spider):
     custom_settings = {
         'ITEM_PIPELINES': {
             'py_spiders.pipelines.A79taoSqlPipeline':50,
-            'py_spiders.pipelines.A79taoJsonPipeline': 50,
+            # 'py_spiders.pipelines.A79taoJsonPipeline': 50,
         }
     }
     def start_requests(self):
@@ -35,7 +35,6 @@ class A79taoSpider(scrapy.Spider):
 
     def parse_detail(self, response):
             item = response.meta["item"]
-            item['title_old'] = response.xpath('//*[@id="thread_subject"]/text()').extract()[0]
             description = response.xpath('//*[@class="t_f"]/text()').extract()
             item["description"] = "".join(description).strip()
             yield item
