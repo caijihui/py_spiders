@@ -9,6 +9,14 @@ class Douban250Spider(scrapy.Spider):
     allowed_domains = ['movie.douban.com']
     start_urls = ['https://movie.douban.com/top250']
 
+    custom_settings = {
+        'ITEM_PIPELINES': {
+            'py_spiders.pipelines.DouBan250Pipeline': 300,
+            'py_spiders.pipelines.DouBan250JsonPipeline': 300,
+            'py_spiders.pipelines.DoubanmovieSqlPipeline': 300,
+        }
+    }
+
     def start_requests(self):
         for i in range(0,10):
             # https://movie.douban.com/top250?start=25&filter=

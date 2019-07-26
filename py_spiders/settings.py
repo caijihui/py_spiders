@@ -30,7 +30,8 @@ MYSQL_DBNAME="test"
 #USER_AGENT = 'py_spiders (+http://www.yourdomain.com)'
 USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3493.3 Safari/537.36'
 # Obey robots.txt rules
-ROBOTSTXT_OBEY = True
+# ROBOTSTXT_OBEY = True
+ROBOTSTXT_OBEY = False
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
@@ -80,10 +81,13 @@ DOWNLOADER_MIDDLEWARES = {
 
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
-#    'py_spiders.pipelines.DouBan250Pipeline': 300,
+# 'py_spiders.pipelines.DouBan250Pipeline': 300,
+# 'py_spiders.pipelines.DouBan250JsonPipeline': 300,
+# 'py_spiders.pipelines.DoubanmovieSqlPipeline': 300,
+# 'py_spiders.pipelines.V2exJsonPipeline': 300,
+# 'py_spiders.pipelines.V2exSqlPipeline': 300
 ITEM_PIPELINES = {
-   'py_spiders.pipelines.DouBan250JsonPipeline': 300,
-   'py_spiders.pipelines.DoubanmovieSqlPipeline': 300
+   
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
