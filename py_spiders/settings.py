@@ -18,7 +18,7 @@ NEWSPIDER_MODULE = 'py_spiders.spiders'
 LOG_FILE = "spider.log"
 LOG_ENABLED=True
 LOG_ENCODING='utf-8'
-LOG_LEVEL = "ERROR"
+LOG_LEVEL = "INFO"
 # 数据库配置
 MYSQL_HOST="127.0.0.1"
 MYSQL_USER="root"

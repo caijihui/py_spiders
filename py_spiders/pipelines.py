@@ -132,15 +132,18 @@ class A79taoSqlPipeline(object):
 
     def process_item(self, item, spider):
         try:
-            self.cursor.execute(
-                """insert into active_list(other_id,act_from,tag,title,description,created_at)
-                  value (%s,%s,%s,%s,%s,%s)""",
-                (item['id'],
-                "a79tao",
-                "hm",
-                 item['title'],
-                 item['description'],
-                 item['created_at']))
+            self.cursor.execute("""select id from active_list where other_id = %s""",(item['id']))
+            res = self.cursor.fetchone()
+            while res == None:
+                self.cursor.execute(
+                    """insert into active_list(other_id,act_from,tag,title,description,created_at)
+                    value (%s,%s,%s,%s,%s,%s)""",
+                    (item['id'],
+                    "a79tao",
+                    "hm",
+                    item['title'],
+                    item['description'],
+                    item['created_at']))
             self.connect.commit()
         except Exception as err:
             print("重复插入了==>错误信息为：" + str(err))
