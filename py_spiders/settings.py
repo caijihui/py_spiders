@@ -18,12 +18,13 @@ NEWSPIDER_MODULE = 'py_spiders.spiders'
 LOG_FILE = "spider.log"
 LOG_ENABLED=True
 LOG_ENCODING='utf-8'
-LOG_LEVEL = "INFO"
+LOG_LEVEL = "ERROR"
 # 数据库配置
 MYSQL_HOST="127.0.0.1"
 MYSQL_USER="root"
 MYSQL_PASSWD="root"
 MYSQL_DBNAME="test"
+RANDOM_UA_TYPE = "chrome"
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
@@ -70,7 +71,7 @@ ROBOTSTXT_OBEY = False
 
 DOWNLOADER_MIDDLEWARES = {
     'py_spiders.middlewares.PySpidersDownloaderMiddleware': 543,
-    'py_spiders.middlewares.RandomUserAgentMiddlware':None
+    'py_spiders.middlewares.RandomUserAgentMiddlware': 550
 }
 
 # Enable or disable extensions

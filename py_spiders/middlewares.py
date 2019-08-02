@@ -121,5 +121,4 @@ class RandomUserAgentMiddlware(object):
     
     #更换用户代理逻辑在此方法中
     def process_request(self, request, spider):
-        self.log(self.ua.random)
         request.headers.setdefault('User-Agent', self.ua.random)
