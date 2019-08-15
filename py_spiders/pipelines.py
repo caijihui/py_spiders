@@ -132,9 +132,9 @@ class A79taoSqlPipeline(object):
 
     def process_item(self, item, spider):
         try:
-            self.cursor.execute("""select id from active_list where other_id = %s""",(item['id']))
+            self.cursor.execute("""select id from active_list where act_from = 'hm' and other_id = %s""",(item['id']))
             res = self.cursor.fetchone()
-            while res == None:
+            if(res == None):
                 self.cursor.execute(
                     """insert into active_list(other_id,act_from,tag,title,description,created_at)
                     value (%s,%s,%s,%s,%s,%s)""",
@@ -144,7 +144,8 @@ class A79taoSqlPipeline(object):
                     item['title'],
                     item['description'],
                     item['created_at']))
-            self.connect.commit()
+                self.connect.commit()
+                
         except Exception as err:
-            print("重复插入了==>错误信息为：" + str(err))
+            print("出错，错误信息为：" + str(err))
         return item

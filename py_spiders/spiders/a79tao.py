@@ -14,9 +14,11 @@ class A79taoSpider(scrapy.Spider):
         }
     }
     def start_requests(self):
-        for i in range(1,3):
-            url = 'http://www.79tao.com/forum.php?mod=guide&view=newthread&'+"page="+str(i)
-            yield scrapy.Request(url=url,callback=self.parse)
+        url = "http://www.79tao.com/forum.php?mod=guide&view=newthread";
+        yield scrapy.Request(url=url,callback=self.parse)
+        # for i in range(1,2):
+        #     url = 'http://www.79tao.com/forum.php?mod=guide&view=newthread&'+"page="+str(i)
+        #     yield scrapy.Request(url=url,callback=self.parse)
 
     def parse(self, response):
         for sel in response.xpath('//*[@id="threadlist"]/div[2]/table/tbody'):
@@ -25,6 +27,7 @@ class A79taoSpider(scrapy.Spider):
             item['href'] = sel.xpath('tr/th/a/@href').extract()[0]
             item['from'] = sel.xpath('tr/td[2]/a/text()').extract()[0]
             item['created_at'] = sel.xpath('tr/td[3]/em/span/text()').extract()[0]
+            # print(item)
             if(type(item['href']) == str):
                 str1 = item['href'].split("-")
                 item['id'] = int(str1[1])
