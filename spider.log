@@ -162,3 +162,171 @@ fake_useragent.errors.FakeUserAgentError: Maximum amount of retries reached
  'scheduler/enqueued/memory': 51,
  'start_time': datetime.datetime(2019, 10, 10, 2, 9, 10, 545681)}
 2019-10-10 10:09:11 [scrapy.core.engine] INFO: Spider closed (finished)
+2019-10-10 10:25:04 [scrapy.utils.log] INFO: Scrapy 1.7.2 started (bot: py_spiders)
+2019-10-10 10:25:04 [scrapy.utils.log] INFO: Versions: lxml 4.3.4.0, libxml2 2.9.9, cssselect 1.0.3, parsel 1.5.1, w3lib 1.20.0, Twisted 19.2.1, Python 3.7.4 (default, Jul  9 2019, 18:14:44) - [Clang 9.0.0 (clang-900.0.39.2)], pyOpenSSL 19.0.0 (OpenSSL 1.1.1c  28 May 2019), cryptography 2.7, Platform Darwin-16.7.0-x86_64-i386-64bit
+2019-10-10 10:25:04 [scrapy.crawler] INFO: Overridden settings: {'BOT_NAME': 'py_spiders', 'LOG_FILE': 'spider.log', 'LOG_LEVEL': 'INFO', 'NEWSPIDER_MODULE': 'py_spiders.spiders', 'SPIDER_MODULES': ['py_spiders.spiders'], 'USER_AGENT': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3493.3 Safari/537.36'}
+2019-10-10 10:25:04 [scrapy.extensions.telnet] INFO: Telnet Password: 3783c9bf622b749a
+2019-10-10 10:25:04 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.logstats.LogStats']
+2019-10-10 10:25:06 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['py_spiders.middlewares.RandomUserAgentMiddlware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'py_spiders.middlewares.PySpidersDownloaderMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2019-10-10 10:25:06 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2019-10-10 10:25:06 [scrapy.middleware] INFO: Enabled item pipelines:
+['py_spiders.pipelines.A79taoSqlPipeline']
+2019-10-10 10:25:06 [scrapy.core.engine] INFO: Spider opened
+2019-10-10 10:25:06 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2019-10-10 10:25:06 [79tao] INFO: Spider opened: 79tao
+2019-10-10 10:25:06 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2019-10-10 10:25:07 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 http://www.79tao.com/http://www.79tao.com/thread-893544-1-1.html>: HTTP status code is not handled or not allowed
+2019-10-10 10:25:07 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 http://www.79tao.com/http://www.79tao.com/thread-893533-1-1.html>: HTTP status code is not handled or not allowed
+2019-10-10 10:25:07 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 http://www.79tao.com/http://www.79tao.com/thread-893526-1-1.html>: HTTP status code is not handled or not allowed
+2019-10-10 10:25:07 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 http://www.79tao.com/http://www.79tao.com/thread-893529-1-1.html>: HTTP status code is not handled or not allowed
+2019-10-10 10:25:07 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 http://www.79tao.com/http://www.79tao.com/thread-893527-1-1.html>: HTTP status code is not handled or not allowed
+2019-10-10 10:25:07 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 http://www.79tao.com/http://www.79tao.com/thread-893528-1-1.html>: HTTP status code is not handled or not allowed
+2019-10-10 10:25:07 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 http://www.79tao.com/http://www.79tao.com/thread-893531-1-1.html>: HTTP status code is not handled or not allowed
+2019-10-10 10:25:07 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 http://www.79tao.com/http://www.79tao.com/thread-893532-1-1.html>: HTTP status code is not handled or not allowed
+2019-10-10 10:25:07 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 http://www.79tao.com/http://www.79tao.com/thread-893530-1-1.html>: HTTP status code is not handled or not allowed
+2019-10-10 10:25:07 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 http://www.79tao.com/http://www.79tao.com/thread-893537-1-1.html>: HTTP status code is not handled or not allowed
+2019-10-10 10:25:07 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 http://www.79tao.com/http://www.79tao.com/thread-893538-1-1.html>: HTTP status code is not handled or not allowed
+2019-10-10 10:25:07 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 http://www.79tao.com/http://www.79tao.com/thread-893534-1-1.html>: HTTP status code is not handled or not allowed
+2019-10-10 10:25:07 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 http://www.79tao.com/http://www.79tao.com/thread-893535-1-1.html>: HTTP status code is not handled or not allowed
+2019-10-10 10:25:07 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 http://www.79tao.com/http://www.79tao.com/thread-893536-1-1.html>: HTTP status code is not handled or not allowed
+2019-10-10 10:25:07 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 http://www.79tao.com/http://www.79tao.com/thread-893539-1-1.html>: HTTP status code is not handled or not allowed
+2019-10-10 10:25:07 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 http://www.79tao.com/http://www.79tao.com/thread-893540-1-1.html>: HTTP status code is not handled or not allowed
+2019-10-10 10:25:07 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 http://www.79tao.com/http://www.79tao.com/thread-893495-1-1.html>: HTTP status code is not handled or not allowed
+2019-10-10 10:25:07 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 http://www.79tao.com/http://www.79tao.com/thread-893496-1-1.html>: HTTP status code is not handled or not allowed
+2019-10-10 10:25:07 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 http://www.79tao.com/http://www.79tao.com/thread-893497-1-1.html>: HTTP status code is not handled or not allowed
+2019-10-10 10:25:07 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 http://www.79tao.com/http://www.79tao.com/thread-893498-1-1.html>: HTTP status code is not handled or not allowed
+2019-10-10 10:25:07 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 http://www.79tao.com/http://www.79tao.com/thread-893499-1-1.html>: HTTP status code is not handled or not allowed
+2019-10-10 10:25:07 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 http://www.79tao.com/http://www.79tao.com/thread-893500-1-1.html>: HTTP status code is not handled or not allowed
+2019-10-10 10:25:07 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 http://www.79tao.com/http://www.79tao.com/thread-893502-1-1.html>: HTTP status code is not handled or not allowed
+2019-10-10 10:25:07 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 http://www.79tao.com/http://www.79tao.com/thread-893501-1-1.html>: HTTP status code is not handled or not allowed
+2019-10-10 10:25:07 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 http://www.79tao.com/http://www.79tao.com/thread-893503-1-1.html>: HTTP status code is not handled or not allowed
+2019-10-10 10:25:07 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 http://www.79tao.com/http://www.79tao.com/thread-893504-1-1.html>: HTTP status code is not handled or not allowed
+2019-10-10 10:25:07 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 http://www.79tao.com/http://www.79tao.com/thread-893505-1-1.html>: HTTP status code is not handled or not allowed
+2019-10-10 10:25:07 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 http://www.79tao.com/http://www.79tao.com/thread-893507-1-1.html>: HTTP status code is not handled or not allowed
+2019-10-10 10:25:07 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 http://www.79tao.com/http://www.79tao.com/thread-893506-1-1.html>: HTTP status code is not handled or not allowed
+2019-10-10 10:25:07 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 http://www.79tao.com/http://www.79tao.com/thread-893509-1-1.html>: HTTP status code is not handled or not allowed
+2019-10-10 10:25:07 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 http://www.79tao.com/http://www.79tao.com/thread-893508-1-1.html>: HTTP status code is not handled or not allowed
+2019-10-10 10:25:07 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 http://www.79tao.com/http://www.79tao.com/thread-893512-1-1.html>: HTTP status code is not handled or not allowed
+2019-10-10 10:25:07 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 http://www.79tao.com/http://www.79tao.com/thread-893513-1-1.html>: HTTP status code is not handled or not allowed
+2019-10-10 10:25:07 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 http://www.79tao.com/http://www.79tao.com/thread-893510-1-1.html>: HTTP status code is not handled or not allowed
+2019-10-10 10:25:07 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 http://www.79tao.com/http://www.79tao.com/thread-893511-1-1.html>: HTTP status code is not handled or not allowed
+2019-10-10 10:25:07 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 http://www.79tao.com/http://www.79tao.com/thread-893516-1-1.html>: HTTP status code is not handled or not allowed
+2019-10-10 10:25:07 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 http://www.79tao.com/http://www.79tao.com/thread-893514-1-1.html>: HTTP status code is not handled or not allowed
+2019-10-10 10:25:07 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 http://www.79tao.com/http://www.79tao.com/thread-893517-1-1.html>: HTTP status code is not handled or not allowed
+2019-10-10 10:25:07 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 http://www.79tao.com/http://www.79tao.com/thread-893518-1-1.html>: HTTP status code is not handled or not allowed
+2019-10-10 10:25:07 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 http://www.79tao.com/http://www.79tao.com/thread-893519-1-1.html>: HTTP status code is not handled or not allowed
+2019-10-10 10:25:07 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 http://www.79tao.com/http://www.79tao.com/thread-893515-1-1.html>: HTTP status code is not handled or not allowed
+2019-10-10 10:25:07 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 http://www.79tao.com/http://www.79tao.com/thread-893520-1-1.html>: HTTP status code is not handled or not allowed
+2019-10-10 10:25:07 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 http://www.79tao.com/http://www.79tao.com/thread-893521-1-1.html>: HTTP status code is not handled or not allowed
+2019-10-10 10:25:07 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 http://www.79tao.com/http://www.79tao.com/thread-893522-1-1.html>: HTTP status code is not handled or not allowed
+2019-10-10 10:25:07 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 http://www.79tao.com/http://www.79tao.com/thread-893523-1-1.html>: HTTP status code is not handled or not allowed
+2019-10-10 10:25:07 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 http://www.79tao.com/http://www.79tao.com/thread-893525-1-1.html>: HTTP status code is not handled or not allowed
+2019-10-10 10:25:07 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 http://www.79tao.com/http://www.79tao.com/thread-893541-1-1.html>: HTTP status code is not handled or not allowed
+2019-10-10 10:25:07 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 http://www.79tao.com/http://www.79tao.com/thread-893542-1-1.html>: HTTP status code is not handled or not allowed
+2019-10-10 10:25:07 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 http://www.79tao.com/http://www.79tao.com/thread-893543-1-1.html>: HTTP status code is not handled or not allowed
+2019-10-10 10:25:07 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 http://www.79tao.com/http://www.79tao.com/thread-893524-1-1.html>: HTTP status code is not handled or not allowed
+2019-10-10 10:25:07 [scrapy.core.engine] INFO: Closing spider (finished)
+2019-10-10 10:25:07 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 26791,
+ 'downloader/request_count': 51,
+ 'downloader/request_method_count/GET': 51,
+ 'downloader/response_bytes': 40342,
+ 'downloader/response_count': 51,
+ 'downloader/response_status_count/200': 1,
+ 'downloader/response_status_count/404': 50,
+ 'elapsed_time_seconds': 1.195494,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2019, 10, 10, 2, 25, 7, 867220),
+ 'httperror/response_ignored_count': 50,
+ 'httperror/response_ignored_status_count/404': 50,
+ 'log_count/INFO': 61,
+ 'memusage/max': 60432384,
+ 'memusage/startup': 60432384,
+ 'request_depth_max': 1,
+ 'response_received_count': 51,
+ 'scheduler/dequeued': 51,
+ 'scheduler/dequeued/memory': 51,
+ 'scheduler/enqueued': 51,
+ 'scheduler/enqueued/memory': 51,
+ 'start_time': datetime.datetime(2019, 10, 10, 2, 25, 6, 671726)}
+2019-10-10 10:25:07 [scrapy.core.engine] INFO: Spider closed (finished)
+2019-10-10 10:25:54 [scrapy.utils.log] INFO: Scrapy 1.7.2 started (bot: py_spiders)
+2019-10-10 10:25:54 [scrapy.utils.log] INFO: Versions: lxml 4.3.4.0, libxml2 2.9.9, cssselect 1.0.3, parsel 1.5.1, w3lib 1.20.0, Twisted 19.2.1, Python 3.7.4 (default, Jul  9 2019, 18:14:44) - [Clang 9.0.0 (clang-900.0.39.2)], pyOpenSSL 19.0.0 (OpenSSL 1.1.1c  28 May 2019), cryptography 2.7, Platform Darwin-16.7.0-x86_64-i386-64bit
+2019-10-10 10:25:54 [scrapy.crawler] INFO: Overridden settings: {'BOT_NAME': 'py_spiders', 'LOG_FILE': 'spider.log', 'LOG_LEVEL': 'INFO', 'NEWSPIDER_MODULE': 'py_spiders.spiders', 'SPIDER_MODULES': ['py_spiders.spiders'], 'USER_AGENT': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3493.3 Safari/537.36'}
+2019-10-10 10:25:55 [scrapy.extensions.telnet] INFO: Telnet Password: 6f34b0ed52ca320a
+2019-10-10 10:25:55 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.logstats.LogStats']
+2019-10-10 10:25:56 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['py_spiders.middlewares.RandomUserAgentMiddlware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'py_spiders.middlewares.PySpidersDownloaderMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2019-10-10 10:25:56 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2019-10-10 10:25:56 [scrapy.middleware] INFO: Enabled item pipelines:
+['py_spiders.pipelines.A79taoSqlPipeline']
+2019-10-10 10:25:56 [scrapy.core.engine] INFO: Spider opened
+2019-10-10 10:25:56 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2019-10-10 10:25:56 [79tao] INFO: Spider opened: 79tao
+2019-10-10 10:25:56 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2019-10-10 10:26:09 [scrapy.core.engine] INFO: Closing spider (finished)
+2019-10-10 10:26:09 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 30287,
+ 'downloader/request_count': 51,
+ 'downloader/request_method_count/GET': 51,
+ 'downloader/response_bytes': 686846,
+ 'downloader/response_count': 51,
+ 'downloader/response_status_count/200': 51,
+ 'elapsed_time_seconds': 12.435374,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2019, 10, 10, 2, 26, 9, 131676),
+ 'item_scraped_count': 50,
+ 'log_count/INFO': 11,
+ 'memusage/max': 60186624,
+ 'memusage/startup': 60186624,
+ 'request_depth_max': 1,
+ 'response_received_count': 51,
+ 'scheduler/dequeued': 51,
+ 'scheduler/dequeued/memory': 51,
+ 'scheduler/enqueued': 51,
+ 'scheduler/enqueued/memory': 51,
+ 'start_time': datetime.datetime(2019, 10, 10, 2, 25, 56, 696302)}
+2019-10-10 10:26:09 [scrapy.core.engine] INFO: Spider closed (finished)

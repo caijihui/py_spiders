@@ -31,7 +31,7 @@ class A79taoSpider(scrapy.Spider):
             if(type(item['href']) == str):
                 str1 = item['href'].split("-")
                 item['id'] = int(str1[1])
-                url = "http://www.79tao.com/"+item['href']
+                url = item['href']
                 yield scrapy.Request(url=url,callback=self.parse_detail,meta={"item": item})
         pass
 
