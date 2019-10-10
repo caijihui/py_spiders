@@ -132,9 +132,9 @@ class A79taoSqlPipeline(object):
 
     def process_item(self, item, spider):
         try:
-            self.cursor.execute("""select id from active_list where act_from = 'hm' and other_id = %s""",(item['id']))
+            self.cursor.execute("""select id from active_list where act_from = 'a79tao' and other_id = %s""",(item['id']))
             res = self.cursor.fetchone()
-            if(res == None):
+            if res == None:
                 self.cursor.execute(
                     """insert into active_list(other_id,act_from,tag,title,description,created_at)
                     value (%s,%s,%s,%s,%s,%s)""",
@@ -144,6 +144,38 @@ class A79taoSqlPipeline(object):
                     item['title'],
                     item['description'],
                     item['created_at']))
+                self.connect.commit()
+                
+        except Exception as err:
+            print("出错，错误信息为：" + str(err))
+        return item
+
+class JianKeSqlPipeline(object):
+    def __init__(self):
+        self.connect = pymysql.connect(
+            host=env.LMYSQL_HOST,
+            db=env.LMYSQL_DBNAME,
+            user=env.LMYSQL_USER,
+            passwd=env.LMYSQL_PASSWD,
+            charset='utf8',
+            use_unicode=True)
+        self.cursor = self.connect.cursor()
+
+    def process_item(self, item, spider):
+        try:
+            self.cursor.execute("""select id from jianke_list where  other_id = %s""",(item['other_id']))
+            res = self.cursor.fetchone()
+            if res == None:
+                self.cursor.execute(
+                    """insert into jianke_list(other_id,cn_name,pihao,price,title,url)
+                    value (%s,%s,%s,%s,%s,%s)""",
+                    (item['other_id'],
+                     item['cn_name'],
+                    item['pihao'],
+                    item['price'],
+                    item['title'],
+                    item['url']
+                   ))
                 self.connect.commit()
                 
         except Exception as err:

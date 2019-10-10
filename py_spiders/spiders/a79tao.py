@@ -33,7 +33,6 @@ class A79taoSpider(scrapy.Spider):
                 item['id'] = int(str1[1])
                 url = "http://www.79tao.com/"+item['href']
                 yield scrapy.Request(url=url,callback=self.parse_detail,meta={"item": item})
-
         pass
 
     def parse_detail(self, response):

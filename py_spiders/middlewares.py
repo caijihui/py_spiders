@@ -7,6 +7,9 @@
 
 from scrapy import signals
 from fake_useragent import UserAgent
+from py_spiders.env import IPPOOL,APP_ENV
+import random
+from py_spiders.proxy import MyProxy
 
 class PySpidersSpiderMiddleware(object):
     # Not all methods need to be defined. If a method is not defined,
@@ -122,3 +125,8 @@ class RandomUserAgentMiddlware(object):
     #更换用户代理逻辑在此方法中
     def process_request(self, request, spider):
         request.headers.setdefault('User-Agent', self.ua.random)
+        # print(APP_ENV)
+        if APP_ENV is "local" :
+            # my_proxy_ip = MyProxy().get_ip();
+            # request.meta['proxy'] = my_proxy_ip[3]+ '://' + my_proxy_ip[0]+':'+my_proxy_ip[1]
+            request.headers.setdefault('User-Agent', self.ua.random)
