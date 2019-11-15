@@ -7,8 +7,13 @@
 - 创建爬虫
     - `scrapy genspider name domain`
 
-#### 爬取豆瓣top250
+
+#### 爬取微博热搜
 ``` 
-    // 运行爬虫
-    scrapy crawl douban250
+    scrapy crawl weiboHot
+```
+
+#### 爬取豆瓣电源top250
+``` 
+    scrapy crawl doubanTop250
 ```

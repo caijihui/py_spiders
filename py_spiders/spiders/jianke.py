@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import scrapy
 
-
+## 废弃---暂无使用计划
 class JiankeSpider(scrapy.Spider):
     name = 'jianke'
     allowed_domains = ['www.jianke.com']

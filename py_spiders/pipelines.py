@@ -7,27 +7,17 @@
 import os
 import json
 import pymysql
+import time
 from py_spiders import settings,env
 
 class PySpidersPipeline(object):
     def process_item(self, item, spider):
         return item
 
-class DouBan250Pipeline(object):
-    def process_item(self, item, spider):
-        base_dir = os.getcwd()
-        filename = base_dir+"/file/douban.text"
-        with open(filename,'a',encoding='utf-8') as f:
-            f.write("".join(item["numbers"])+" ")#写入序号换行
-            f.write("".join(item["link"])+" ") #写入链接换行
-            f.write("".join(item["movie_name"])+"\n")#写入电影名字换行
-            f.close()
-        return item
-
-#保存为json数据
+## 保存为json数据
 class DouBan250JsonPipeline(object):
     def __init__(self):
-        self.file=open("./file/douban.json","wb")
+        self.file=open("./file/doubanTop250.json","wb")
 
     def process_item(self, item, spider):
         
@@ -37,8 +27,7 @@ class DouBan250JsonPipeline(object):
 
     def spider_closed(self):
         self.file.close()
-
-
+## 一次性入库
 class DoubanmovieSqlPipeline(object):
     def __init__(self):
         self.connect = pymysql.connect(
@@ -52,23 +41,25 @@ class DoubanmovieSqlPipeline(object):
 
     def process_item(self, item, spider):
         try:
-            self.cursor.execute(
-                """insert into doubantop250(numbers,movie_name,movieInfo,rating_num)
-                  value (%s,%s,%s,%s)""",
-                (item['numbers'],
-                 item['movie_name'],
-                 item['movieInfo'],
-                 item['rating_num']))
-            self.connect.commit()
+             self.cursor.execute("""select id from doubantop250 where movie_name = %s""",(item['movie_name']))
+            res = self.cursor.fetchone()
+            if res == None:
+                self.cursor.execute(
+                    """insert into doubantop250(numbers,movie_name,movieInfo,rating_num)
+                    value (%s,%s,%s,%s)""",
+                    (item['numbers'],
+                    item['movie_name'],
+                    item['movieInfo'],
+                    item['rating_num']))
+                self.connect.commit()
         except Exception as err:
             print("重复插入了==>错误信息为：" + str(err))
         return item
 
 #保存为json数据
-
 class V2exJsonPipeline(object):
     def __init__(self):
-        self.file=open("./file/v2.json","wb")
+        self.file=open("./file/v2exHot.json","wb")
 
     def process_item(self, item, spider):
         
@@ -79,6 +70,7 @@ class V2exJsonPipeline(object):
     def spider_closed(self):
         self.file.close()
 
+## v2ex 
 class V2exSqlPipeline(object):
     def __init__(self):
         self.connect = pymysql.connect(
@@ -106,6 +98,7 @@ class V2exSqlPipeline(object):
         return item
 
 
+## a79tao 线报信息爬取
 class A79taoJsonPipeline(object):
     def __init__(self):
         self.file=open("./file/a79.json","wb")
@@ -119,6 +112,7 @@ class A79taoJsonPipeline(object):
     def spider_closed(self):
         self.file.close()
 
+## a79tao 线报信息爬取
 class A79taoSqlPipeline(object):
     def __init__(self):
         self.connect = pymysql.connect(
@@ -150,6 +144,7 @@ class A79taoSqlPipeline(object):
             print("出错，错误信息为：" + str(err))
         return item
 
+## 测试健客网 -药品数据 （无效）
 class JianKeSqlPipeline(object):
     def __init__(self):
         self.connect = pymysql.connect(
@@ -181,3 +176,54 @@ class JianKeSqlPipeline(object):
         except Exception as err:
             print("出错，错误信息为：" + str(err))
         return item
+
+
+#保存为json数据 和 存储入库
+class weiboHotPipeline(object):
+    def __init__(self):
+        self.file=open("./file/weiboHot.json","wb")
+
+    def process_item(self, item, spider):
+        
+        line=json.dumps(item,ensure_ascii = False)+",\n"
+        self.file.write(line.encode('utf-8'))
+        return item
+
+    def spider_closed(self):
+        self.file.close()
+
+## 微博热搜-存储数据库
+class weiboHotSqlPipeline(object):
+    def __init__(self):
+        self.connect = pymysql.connect(
+            host=settings.MYSQL_HOST,
+            db=settings.MYSQL_DBNAME,
+            user=settings.MYSQL_USER,
+            passwd=settings.MYSQL_PASSWD,
+            charset='utf8',
+            use_unicode=True)
+        self.cursor = self.connect.cursor()
+
+    def process_item(self, item, spider):
+        try:
+            self.cursor.execute("""select id from hot where type = 1 and other_id = %s""",(item['id']))
+            res = self.cursor.fetchone()
+            if res == None:
+                self.cursor.execute(
+                    """insert into hot(other_id,type,title,url,click,created_at,updated_at)
+                    value (%s,%s,%s,%s,%s,%s,%s)""",
+                    (item['id'],1,item['title'],item['url'],item['click'],
+                    time.strftime('%Y-%m-%d %H:%M:%S'),
+                    time.strftime('%Y-%m-%d %H:%M:%S')))
+            else :
+                self.cursor.execute(
+                    """update hot set title =%,url=%s,click=%s where type = 1 and other_id = %s """,
+                    (item['title'],item['url'],item['id'],item['click']))
+            self.connect.commit()
+                
+        except Exception as err:
+            print("出错，错误信息为：" + str(err))
+        return item
+
+    def spider_closed(self):
+        self.file.close()
