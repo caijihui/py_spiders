@@ -41,7 +41,7 @@ class DoubanmovieSqlPipeline(object):
 
     def process_item(self, item, spider):
         try:
-             self.cursor.execute("""select id from doubantop250 where movie_name = %s""",(item['movie_name']))
+            self.cursor.execute("""select id from doubantop250 where movie_name = %s""",(item['movie_name']))
             res = self.cursor.fetchone()
             if res == None:
                 self.cursor.execute(
