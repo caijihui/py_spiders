@@ -3,3 +3,4 @@ py_spiders/spiders/__pycache__/*
 py_spiders/__pycache__/*
 __pycache__
 file/*
+spider.log

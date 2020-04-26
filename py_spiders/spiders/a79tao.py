@@ -4,8 +4,8 @@ import scrapy
 
 class A79taoSpider(scrapy.Spider):
     name = '79tao'
-    allowed_domains = ['79tao.com']
-    start_urls = ['http://www.79tao.com/forum.php?mod=guide&view=newthread']
+    allowed_domains = ['79tao.com','xianbaowu.cn']
+    start_urls = ['http://www.xianbaowu.cn/forum.php?mod=guide&view=newthread']
 
     custom_settings = {
         'ITEM_PIPELINES': {
@@ -27,17 +27,17 @@ class A79taoSpider(scrapy.Spider):
             item['href'] = sel.xpath('tr/th/a/@href').extract()[0]
             item['from'] = sel.xpath('tr/td[2]/a/text()').extract()[0]
             item['created_at'] = sel.xpath('tr/td[3]/em/span/text()').extract()[0]
-            # print(item)
             if(type(item['href']) == str):
                 str1 = item['href'].split("-")
                 item['id'] = int(str1[1])
                 url = item['href']
-                yield scrapy.Request(url=url,callback=self.parse_detail,meta={"item": item})
+                print(url)
+                yield scrapy.Request(url=url,callback=self.parse_details,meta={"item": item})
         pass
 
-    def parse_detail(self, response):
-            item = response.meta["item"]
-            description = response.xpath('//*[@class="t_f"]/text()').extract()
-            item["description"] = "".join(description).strip()
-            yield item
-            pass
+    def parse_details(self, response):
+        item = response.meta["item"]
+        description = response.xpath('//*[@class="t_f"]/text()').extract()
+        item["description"] = "".join(description).strip()
+        yield item
+        pass

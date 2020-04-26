@@ -9,7 +9,7 @@ from scrapy import signals
 from fake_useragent import UserAgent
 from py_spiders.env import IPPOOL,APP_ENV
 import random
-from py_spiders.proxy import MyProxy
+# from py_spiders.proxy import MyProxy
 
 class PySpidersSpiderMiddleware(object):
     # Not all methods need to be defined. If a method is not defined,
